@@ -7,12 +7,13 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 public interface UserMapper {
-    @Insert("INSERT INTO `mayikt_user`.`mayikt_users` (`id`, `name`, `age`, `addres`) VALUES ({null}, #{name}, #{age}, #{addres});\n")
+    @Insert("INSERT INTO `mayikt_user`.`mayikt_users` (`id`, `name`, `age`, `addres`) VALUES (null, #{name}, #{age}, #{addres});")
     int insertUser(UserEntity userEntity);
     @Delete("delete from mayikt_users where id=#{id}")
     int  deleteById(Integer id );
-    @Update("UPDATE `mayikt_user`.`mayikt_users` SET  `name`=#{name}, `age`=#{age}', `addres`='河南' WHERE (`id`=#{id});")
+    @Update("UPDATE `mayikt_users` SET `name`=#{name}, `age`=#{age}, `addres`=#{addres} WHERE `id`=#{id};")
     int updateUser(UserEntity userEntity);
+
     @Select("select * from mayikt_users where id=#{id}")
     UserEntity getById (Integer id);
 }

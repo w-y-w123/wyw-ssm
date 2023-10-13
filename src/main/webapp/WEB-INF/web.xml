@@ -1,7 +1,5 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
-</web-app>
+<!-- 引入layui css -->
+<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css" />
+        <!-- 引入layui js -->
+<script src="https://www.layuicdn.com/layui-v2.5.6/layui.js"></script>
