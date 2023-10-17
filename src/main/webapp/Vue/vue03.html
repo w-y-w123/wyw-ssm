@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue03</title>
+    <!--引入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <input type="button" value="点击我" @click="mayiktShow01()">
+    <input type="button" value="点击我" @click="mayiktShow01()">
+    <input type="button" value="点击我" @click="mayiktShow02()">
+
+</div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data(){
+            return{
+                username : "wyw",
+                mayiktUrl: "http://www.mayikt.com"
+            }
+        },
+
+        methods:{//定义方法
+
+            mayiktShow01(){
+                alert("mayikt 666 show01")
+            },
+
+            mayiktShow02(){
+                alert("mayikt 666 show02")
+            }
+        }
+
+    });
+</script>
+
+</body>
+</html>

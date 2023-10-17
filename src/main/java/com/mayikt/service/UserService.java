@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired(required = false)
@@ -22,6 +24,9 @@ public class UserService {
     }
     public UserEntity getById (Integer id){
          return  userMapper.getById(id);
+    }
+    public List<UserEntity> getUsersAll (){
+        return  userMapper.getUsersAll();
     }
 }
 

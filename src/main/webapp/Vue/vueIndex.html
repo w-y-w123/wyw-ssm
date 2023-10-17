@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>开始使用 layui</title>
+    <!-- 引入layui css -->
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css" />
+    <!-- 引入vue.js -->
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>学生ID</th>
+            <th>学生名称</th>
+            <th>学生年龄</th>
+            <th>学生地址</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="user in users" >
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.addres }}</td>
+            <td><a href="#" @click="delUser(user.id)" >删除&nbsp;</a>
+                <a :href="'vueUpdateUser.html?id='+user.id ">修改</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    // 页面加载完成后发送ajax请求
+    new Vue({
+        el: "#app",
+
+        data() {
+            return {
+                users: []
+            }
+        },
+        methods:{
+          delUser(id){
+              alert("确认删除?");
+              axios({
+                  // 请求方式
+                  method: 'DELETE',
+                  // 请求的地址
+                  url: 'http://localhost:7921/user/deleteById/' + id
+              }).then(function (result) {
+                  var code = result.data.code;
+                  if (code == "200") {
+                      alert("删除成功");
+                      window.location.href="vueIndex.html";
+                  }
+
+              })
+          }
+
+        },
+        mounted() {
+            var _this = this;
+            // 页面加载完成后处理
+            axios({
+                // 请求方式
+                method: 'GET',
+                // 请求的地址
+                url: 'http://localhost:7921/user/getUsersAll'
+            }).then(function (result) {
+                var code = result.data.code;
+                var data = result.data.data;
+                if (code === 200) {
+                    // 返回200 后端接口中响应data数据 给users
+                    _this.users = data;
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

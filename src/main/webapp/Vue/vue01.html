@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue快速入门案例</title>
+  <!--引入vue.js-->
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <input type="text" name="username" v-model="username">
+  <!--差值表达式-->
+  {{username}}
+</div>
+
+
+<script>
+new Vue({
+  el:"#app",
+  data(){
+    return {
+      username:"wyw"
+    }
+  }
+
+})
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue04</title>
+    <!--引入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div v-for="name in arrays">
+        <li>{{name}}</li>
+    </div>
+    <div v-for="(name,i) in arrays">
+        <li>{{i}}:{{name}}</li>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data(){
+            return{
+        arrays:["壮","xueliang","wangan"]
+
+
+
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
